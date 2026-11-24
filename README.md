@@ -91,27 +91,7 @@ La finalidad principal es completar cuatro vueltas válidas con la menor cantida
 - `videos/`: videos de la tanda oficial.
 - `bags/`: registros ROS Bag.
 
-## 9. Proyectos antecedentes
-
-Este proyecto reutiliza conocimientos y componentes desarrollados durante los retos anteriores:
-
-- El Gran Reto JetCobot.
-- CapyTown RC-0.
-- CapyTown RC-1.
-
-## 10. Integrantes
-
-Pendiente de completar.
-
-## 11. Estado del proyecto
-
-En planificación y desarrollo inicial.
-
-Pendiente de recibir el repositorio general `granprix-esan`, verificar las plantillas oficiales, configurar el submódulo y validar la integración con Race Control.
-
-**Fecha de presentación final: 7 de diciembre de 2026.**
-
-## 12. Referencias
+## 9. Referencias
 
 - [Documentación oficial Yahboom JetCobot](https://www.yahboom.net/study/JetCobot)
 - [Documentación oficial Yahboom MicroROS Pi5](https://www.yahboom.net/study/MicroROS-Pi5)
