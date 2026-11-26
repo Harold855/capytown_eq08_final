@@ -1,0 +1,20 @@
+# Movimiento del ROSCar: velocidades del planificador y parámetros del ejecutor.
+# Lo lee carrito/granprix_carrito/configuracion.py (cargar_movimiento). Cualquier clave no listada aquí es un error, así un nombre mal escrito no se ignora en silencio.
+version: 1
+
+velocidades:
+  v_ref: 0.10    # m/s de crucero en los tramos
+  w_ref: 0.50    # rad/s de crucero en los giros
+  v_max: 0.20    # m/s. El cargador rechaza valores mayores
+  w_max: 0.80    # rad/s. El cargador rechaza valores mayores
+
+ejecutor:
+  periodo_s: 0.05            # el temporizador llama a paso() cada 50 ms (20 Hz)
+  pausa_s: 0.30              # ceros entre el giro y el avance, para que el giro termine de asentarse
+  asentamiento_s: 0.50       # ceros tras avanzar. /odom llega con 0.5-0.65 s de retardo: probablemente poco
+  max_hueco_s: 0.25          # más tiempo que esto entre dos paso() = temporizador caído, se aborta
+  t_max_tramo_s: 60.0        # un tramo no puede durar más
+  a_lin_max: null            # m/s^2 de rampa al acelerar, null = sin rampa (nunca limita el frenado)
+  a_ang_max: null            # rad/s^2; null = sin rampa
+  ajustar_ultimo_paso: true  # el último paso de cada segmento se escala para que lo comandado sea exacto
+  ceros_al_abortar: 5        # ceros repetidos tras una parada, por si se pierde alguno

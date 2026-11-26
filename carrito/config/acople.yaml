@@ -1,0 +1,33 @@
+# Acople fino del Roscar (tolerancias, ganancias, velocidades y reintentos)
+# Lo lee carrito/granprix_carrito/acople.py. Clave desconocida o repetida devuelve un error.
+version: 1
+
+tolerancia:              # el acople corrige hasta quedar dentro de esto, el reto exige 4 cm y 6 cm
+  pos_m: 0.03            # margen de 1 cm, pues el tag tiene ruido y la medición final decide
+  ang_deg: 4.0           # margen de 2 grados
+
+ganancias:               # control proporcional: fracción del error que se corrige en cada intento
+  pos: 1.0               # sobre el avance. En simulación 0.9 bajó el éxito de 100 % a 82 %, entonces cada corrección cuesta mas o menos 4 s
+  ang: 1.0               # sobre el giro final
+
+velocidades:             # deben ser iguales a movimiento.yaml, pues cd y ca se calibraron a esa v y esa w
+  v: 0.10                # en m/s
+  w: 0.50                # en rad/s
+
+reintentos: 2            # máximo, se hace 1 corrección con hasta 2 reintentos
+
+alcance:
+  error_max_m: 0.30      # más lejos del dock no se intenta acoplar
+  error_max_deg: 45.0    
+  giro_max_deg: 120.0    # ningún giro mayor, un 180 tardaría más de 6 s
+  reversa_max_m: 0.10    # marcha atrás permitida (sobrepasos), mientras con 0 la desactiva. Pero, el carrito no ve hacia atrás
+
+medicion:
+  lecturas_max: 3        # intentos seguidos de medir antes de dar el tag por ausente
+
+tiempo:
+  presupuesto_s: 4.0     # no se inicia otra corrección pasado este tiempo, null da "sin límite"
+
+minimos:                 # por debajo de esto el robot real probablemente no se mueve
+  avance_m: 0.01         
+  giro_deg: 1.0           
