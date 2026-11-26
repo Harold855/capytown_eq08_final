@@ -116,7 +116,7 @@ Bono: +1 por odometría visual documentada (sin pasar de 20). Rige la rúbrica d
 Se reutilizan componentes, pero **no** se copian proyectos completos, pues todo valor histórico debe volver a comprobarse en el robot del GranPrix Delivery.
 
 - [RC-0 · Calibración del ROSCar](https://github.com/Harold855/RC-0_MicroRos_Pi5/tree/main)
-- [RC-1 · Control PID](https://github.com/Harold855/microrospi5-sim_capytown_G8/tree/main) (`main` está desactualizada; lo final está en la rama [`claude/sleepy-knuth-kc6wex`](https://github.com/Harold855/microrospi5-sim_capytown_G8/tree/claude/sleepy-knuth-kc6wex)) y el [simulador base del curso](https://github.com/codeplai/microrospi5-sim/tree/main)
+- [RC-1 · Control PID](https://github.com/Harold855/microrospi5-sim_capytown_G8/tree/main) y el [simulador base del curso](https://github.com/codeplai/microrospi5-sim/tree/main)
 - [Reto 2 · El Turno del Brazo](https://github.com/Harold855/Reto_2-El_Turno_del_Brazo/tree/main)
 - [Gran Reto del JetCobot](https://github.com/Harold855/El-Gran-Reto-de-JetCobot---Grupo-8/tree/main)
 - Reto 1 · API del JetCobot: sin repositorio (se entregó como `.zip`).
