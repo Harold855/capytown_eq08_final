@@ -1,0 +1,23 @@
+# Escalas del ROSCar y parámetros del estimador (cd = distancia real/comandada, ca = giro real/comandado).
+# Es la semilla que se edita a mano. El estimador no escribe aquí, si no que guarda su estado con EstimadorEscalas.guardar(ruta) en la carpeta del experimento (experimentos/.../calibracion_final.yaml).
+# Importante: 1.0 significa "robot sin caracterizar". No se debe copiar escalas de otros retos (RC-0/RC-1 eran de otro montaje) 
+# Ni con valores de otro día, se debe medirlas en el carrito de este reto (Bloque 1.1) y anotar la fuente en la bitácora. La carga exige que `robot` coincida con el esperado.
+version: 1
+
+robot: eq08-roscar     # identificador, pero si el robot esperado es otro, la carga fallará
+
+escalas:
+  cd: 1.0              # rango admitido [0.5, 1.5]
+  ca: 1.0              # rango admitido [0.5, 1.5]
+
+# v y ω con que valen las escalas (RC-1 midió que el giro cambia con ω). Una observación a otras velocidades no se mezcla. 
+# Deben coincidir con velocidades.v_ref / w_ref de movimiento.yaml, null significa que se fijan con la primera observación usada.
+perfil:
+  v_ref: 0.10
+  w_ref: 0.50
+
+estimador:
+  alpha: 0.35            # referencia del HTML, en simulación es un buen compromiso, no un ajuste definitivo
+  proteger: true         # escalas en [0.5, 1.5], paso máximo 0.05, ignora tramos cortos o giros fuera de 20-150 grados
+  ventana: 4             # actualizaciones usadas que se miran para declarar convergencia
+  tol_convergencia: 0.01 # diferencia máxima entre esas estimaciones
